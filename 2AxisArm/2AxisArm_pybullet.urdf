@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot name="2AxisArm_pybullet">
+
+  <material name="base_gray">
+    <color rgba="0.55 0.60 0.70 1"/>
+  </material>
+
+  <material name="copper">
+    <color rgba="0.90 0.55 0.32 1"/>
+  </material>
+
+  <material name="arm_gray">
+    <color rgba="0.45 0.45 0.45 1"/>
+  </material>
+
+  <material name="tool_red">
+    <color rgba="1.0 0.05 0.05 1"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="pybullet_meshes/ActualBase_local.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="base_gray"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 -0.025" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.325 0.325 0.050"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="2.0"/>
+      <origin xyz="0 0 -0.025" rpy="0 0 0"/>
+      <inertia ixx="0.020" ixy="0" ixz="0" iyy="0.020" iyz="0" izz="0.030"/>
+    </inertial>
+  </link>
+
+  <link name="yaw_link">
+    <visual>
+      <geometry>
+        <mesh filename="pybullet_meshes/Yaw_local.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="copper"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.050" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.145" length="0.100"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0.050" rpy="0 0 0"/>
+      <inertia ixx="0.006" ixy="0" ixz="0" iyy="0.006" iyz="0" izz="0.010"/>
+    </inertial>
+  </link>
+
+  <link name="lower_arm_link">
+    <visual>
+      <geometry>
+        <mesh filename="pybullet_meshes/LowerArm_local.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="arm_gray"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.125 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.290 0.080 0.040"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.7"/>
+      <origin xyz="0.125 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.006" iyz="0" izz="0.006"/>
+    </inertial>
+  </link>
+
+  <link name="upper_arm_link">
+    <visual>
+      <geometry>
+        <mesh filename="pybullet_meshes/UpperArm_local.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="arm_gray"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0.125 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.290 0.060 0.040"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0.125 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.004" iyz="0" izz="0.004"/>
+    </inertial>
+  </link>
+
+  <link name="tool0">
+    <visual>
+      <geometry>
+        <sphere radius="0.018"/>
+      </geometry>
+      <material name="tool_red"/>
+    </visual>
+
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+    </inertial>
+  </link>
+
+  <joint name="joint0_yaw" type="revolute">
+    <parent link="base_link"/>
+    <child link="yaw_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14159" upper="3.14159" effort="10" velocity="1"/>
+  </joint>
+
+  <joint name="joint1_shoulder" type="revolute">
+    <parent link="yaw_link"/>
+    <child link="lower_arm_link"/>
+    <origin xyz="0 0 0.06665" rpy="0 -1.5708 1.0988"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="1.5708" effort="10" velocity="1"/>
+  </joint>
+
+  <joint name="joint2_elbow" type="revolute">
+    <parent link="lower_arm_link"/>
+    <child link="upper_arm_link"/>
+    <origin xyz="0.250 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.2" upper="2.2" effort="10" velocity="1"/>
+  </joint>
+
+  <joint name="fixed_tool0" type="fixed">
+    <parent link="upper_arm_link"/>
+    <child link="tool0"/>
+    <origin xyz="0.260 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
