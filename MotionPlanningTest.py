@@ -46,7 +46,7 @@ print("Sinusoidal interpolation angles:\n", np.round(interp_sin, 3))
 print("\nRunning sinusoidal trajectory...")
 
 for waypoint in interp_sin: #list of angles commanding the arm to move using constants
-    p.setJointMotorControl2(arm_id, 0, p.POSITION_CONTROL, targetPosition=float(waypoint[0]), maxVelocity=2.0, force=20.0) #(I tried with no maxVelocity but it started overshooting like crazy)
+    p.setJointMotorControl2(arm_id, 0, p.POSITION_CONTROL, targetPosition=float(waypoint[0]), maxVelocity=2.0, force=20.0) #maxVelocity prevents overshooting
     p.setJointMotorControl2(arm_id, 1, p.POSITION_CONTROL, targetPosition=float(waypoint[1]), maxVelocity=2.0, force=20.0)
     p.setJointMotorControl2(arm_id, 2, p.POSITION_CONTROL, targetPosition=float(waypoint[2]), maxVelocity=2.0, force=20.0)
     p.stepSimulation()
