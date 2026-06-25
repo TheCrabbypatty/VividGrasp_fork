@@ -13,7 +13,6 @@ BALL_RADIUS = constants.tennis_ball_r
 BALL_POS = [0.4, 0.35, BALL_RADIUS]
 BALL_TOP    = [BALL_POS[0], BALL_POS[1], BALL_RADIUS * 2 + 0.02]
 
-#GUI cuz actually simulating in pybullet not colab
 p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0, 0, -9.8) #newton found gravitational constant
