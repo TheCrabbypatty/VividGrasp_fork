@@ -7,8 +7,10 @@ import tempfile
 
 
 #This is defining the ball
-BALL_RADIUS = 0.0327 #this is the radius of a tennis ball per the github file
-BALL_POS    = [0.4, 0.35, BALL_RADIUS]
+import constants
+
+BALL_RADIUS = constants.tennis_ball_r
+BALL_POS = [0.4, 0.35, BALL_RADIUS]
 BALL_TOP    = [BALL_POS[0], BALL_POS[1], BALL_RADIUS * 2 + 0.02]
 
 #GUI cuz actually simulating in pybullet not colab
