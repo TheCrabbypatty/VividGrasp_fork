@@ -34,7 +34,7 @@ goal_angles = p.calculateInverseKinematics(arm_id, EE_LINK, BALL_TOP)  # yaw, sh
 print(f"IK solution — yaw: {goal_angles[0]:.2f}, shoulder: {goal_angles[1]:.2f}, elbow: {goal_angles[2]:.2f}")
 
 start_angles = np.array([0.0, 0.0, 0.0]) #obviously wanna start at 0
-steps = 480 #I looked up the ideal number and gemini said this was the ideal number for best rendering in pybullet
+steps = 480 # ideal number for best rendering in pybullet
 
 #this is sinusoidal "blend" motion planning straight from the day 8 notebook
 def sinusoidal_interpolation(start, goal, steps):
