@@ -6,7 +6,6 @@ import tempfile
 
 
 
-#This is defining the ball
 import constants
 
 BALL_RADIUS = constants.tennis_ball_r
