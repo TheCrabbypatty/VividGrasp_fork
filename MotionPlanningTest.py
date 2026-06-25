@@ -18,11 +18,7 @@ p.setGravity(0, 0, -9.8) #newton found gravitational constant
 
 p.loadURDF(pybullet_data.getDataPath() + "/plane.urdf") #load the plane for pybullet
 #This is Christopher's URDF I took from the github
-arm_id = p.loadURDF(
-    "2AxisArm/2AxisArm_pybullet.urdf",
-    basePosition=[0, 0, 0],
-    useFixedBase=True
-)
+arm_id = p.loadURDF("2AxisArm/2AxisArm_pybullet.urdf", basePosition=[0, 0, 0], useFixedBase=True)
 #Tennis Ball makes exist here with color and location from previous constants
 col_ball = p.createCollisionShape(p.GEOM_SPHERE, radius=BALL_RADIUS)
 vis_ball = p.createVisualShape(p.GEOM_SPHERE, radius=BALL_RADIUS, rgbaColor=[0.8, 1.0, 0.1, 1.0])
