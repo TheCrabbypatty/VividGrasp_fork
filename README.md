@@ -21,7 +21,7 @@ Thank you to Patrick Chen for programming shape detection. Additionally, thank y
 Thank you to Davor Fortuna for converting 2D coodinates into 3D space to locate objects, as well as training the Machine Learning model for categorization, and to Leo Shrotri for programming robot movement.
 
 ### Simulation
-Thank you to Shalika Bhattacharyya for creating the test objects used in the simulation enviornment.
+Thank you to Shalika Bhattacharyya for creating the test objects used in the simulation enviornment, and to Leo Shroti for integrating everything into the simulated enviornment as well.
 
 ### Management
 Thank you to Kynlee Cook, who oversaw the code production and planning for this project.
