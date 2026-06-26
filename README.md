@@ -15,7 +15,7 @@ We would like to acknowledge Mahmoud Abbass and Yash Khairnar, the graduate ment
 Thank you to Christopher Heskett for creating the 2-joint arm design, as well as Vivaan Shah for building the robot it's real-world enviornment.
 
 ### Computer Vision
-Thank you to Patrick Chen for programming shape detection, as well as Emily Kao and Zoey Fishman for programming color detection and object identification.
+Thank you to Patrick Chen for programming shape detection. Additionally, thank you to  Eli Seeligerand, Zoey Fishman, and Emily Kao for programming color detection and object identification.
 
 ### Mapping, Motion Planning, and Sorting
 Thank you to Davor Fortuna for converting 2D coodinates into 3D space to locate objects, as well as training the Machine Learning model for categorization, and to Leo Shrotri for programming robot movement.
