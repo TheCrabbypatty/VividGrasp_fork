@@ -201,7 +201,7 @@ def detect_all_balls(image):
 
     return detected_balls
 
-#pixels to world coordinates from mapping.py
+#pixels to 'world' coordinates from mapping.py
 def convertCoordinates(px, py, ball_radius,
                         min_x=WORLD_MIN_X, max_x=WORLD_MAX_X,
                         min_y=WORLD_MIN_Y, max_y=WORLD_MAX_Y,
