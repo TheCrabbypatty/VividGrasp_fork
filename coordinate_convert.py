@@ -1,4 +1,4 @@
-def convertCoordinates(px, py, ball_radius, min_x, max_x, min_y, max_y, imgW=200, imgH=200):
+def convertCoordinates(px, py, ball_radius, min_x, max_x, min_y, max_y, imgW=600, imgH=600):
 
     px = max(0, min(px, imgW))
     py = max(0, min(py, imgH))
